@@ -103,6 +103,9 @@ body {
     justify-content: space-between;
 }
 .level .easy, .medium, .hard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     width: 30%;
     align-items: center;
     text-align: center;
@@ -132,7 +135,7 @@ body {
 }
 aside {
     display: grid;
-    height: 60%;
+    height: 50%;
     width: 90%;
     margin: 5% auto 10%;
     border-radius: 20px;
@@ -221,7 +224,7 @@ aside div {
     100% {text-shadow: 4px 2px hotpink}
     
 }
-@media (orientation:portrait) {
+@media (max-width: 480px) {
     .game h1 {
         font-size: 4em;
     }
@@ -268,15 +271,104 @@ aside div {
     }
 }
 
-@media (orientation:landscape) and (max-width: 1444px) {
-    .game {
-        width: 80vw;
+@media (min-width: 481px) and (max-width: 768px) {
+    .game h1 {
+        font-size: 4em;
     }
-    aside {
-        height: 50%;
-        margin: 10% auto;
+    .game {
+        flex-direction: column;
+        height: 90vh;
+        width: 100vw;
+    }
+    .level {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+    .level section.easy, .medium, .hard {
+        flex-basis: 30%;
+        width: 80%;
+    }
+    .level aside {
+        display: none;
+    }
+    .newGame {
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        border-radius: 0;
+    }
+    .squaresSection {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+    }
+    .btn {
+        margin: 2%;
+        line-height: 0px;
+        padding: 20px;
     }
     .finalResult {
-        font-size: 6em;
+        font-size: 8em;
+        padding-top: 100px;
+    }
+    .game p {
+        margin-top:0;
+    }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .game h1 {
+        font-size: 4em;
+    }
+    .game {
+        flex-direction: column;
+        height: 90vh;
+        width: 100vw;
+    }
+    .level {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+    .level section.easy, .medium, .hard {
+        flex-basis: 30%;
+        width: 80%;
+    }
+    .level aside {
+        display: none;
+    }
+    .newGame {
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        border-radius: 0;
+    }
+    .squaresSection {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+    }
+    .btn {
+        margin: 2%;
+        line-height: 0px;
+        padding: 20px;
+    }
+    .finalResult {
+        font-size: 8em;
+        padding-top: 100px;
+    }
+    .game p {
+        margin-top:0;
+    }
+}
+@media (min-width: 1025px) and (max-width: 1200px) {
+    .game {
+        width: 80vw;
     }
 }
