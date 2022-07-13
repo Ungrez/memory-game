@@ -322,7 +322,7 @@ aside div {
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .game h1 {
-        font-size: 4em;
+        font-size: 6em;
     }
     .game {
         flex-direction: column;
@@ -357,7 +357,7 @@ aside div {
     .btn {
         margin: 2%;
         line-height: 0px;
-        padding: 20px;
+        padding: 25px;
     }
     .finalResult {
         font-size: 8em;
@@ -368,6 +368,9 @@ aside div {
     }
 }
 @media (min-width: 1025px) and (max-width: 1200px) {
+    .game h1 {
+        font-size: 5em;
+    }
     .game {
         width: 80vw;
     }
