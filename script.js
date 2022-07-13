@@ -125,12 +125,10 @@ const levelStart = document.querySelectorAll('.level section').forEach((e) => {
     e.addEventListener('click', () => {
         const hiddenCards = setTimeout(hideCards, 2500);
         function hideCards() {
-
             squares.forEach((square) => {
             square.classList.add("hidden");
         })
     }
-
         let name = e.getAttribute('class');
         hiddenMenu();
         startGame();
@@ -164,6 +162,7 @@ const levelStart = document.querySelectorAll('.level section').forEach((e) => {
                 gameSection.appendChild(card);
                 squares.push(card);
             }
+
             squares.forEach((square) => {
                 const position = Math.floor(Math.random()*cardsColor.length);
                 square.style.backgroundColor = (cardsColor[position]);
@@ -182,6 +181,7 @@ const levelStart = document.querySelectorAll('.level section').forEach((e) => {
                 card.classList.add('hardCard');
                 gameSection.appendChild(card);
             }
+            
             squares.forEach((square) => {
                 const position = Math.floor(Math.random()*cardsColor.length);
                 square.style.backgroundColor = (cardsColor[position]);
