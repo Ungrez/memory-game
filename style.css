@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Nunito Sans', sans-serif;
-    overflow: hidden;
 }
 body {
     position: relative;
@@ -21,6 +20,7 @@ body {
     width: 60vw;
     margin: 10vh auto;
     padding-top: 40px;
+    overflow: hidden;
 }
 .newGame {
     display: flex;
@@ -259,6 +259,7 @@ aside div {
         border-radius: 0;
         box-shadow: none;
         margin: 0;
+        overflow: hidden;
     }
     .squaresSection {
         width: 100%;
@@ -305,6 +306,7 @@ aside div {
         width: 100vw;
         margin: 0;
         border-radius: 0;
+        overflow: hidden;
     }
     .squaresSection {
         width: 100%;
@@ -355,6 +357,7 @@ aside div {
         width: 100vw;
         margin: 0;
         border-radius: 0;
+        overflow: hidden;
     }
     .squaresSection {
         width: 100%;
