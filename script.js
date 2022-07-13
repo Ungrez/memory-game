@@ -51,8 +51,8 @@ const startGame = () => {
         gameField.appendChild(btnsField);
         btnsField.appendChild(hint);
         btnsField.appendChild(menuReturn);
-        hint.textContent = "Podpowiedź"
-        menuReturn.textContent = "Wróć do menu";
+        hint.textContent = "Hint"
+        menuReturn.textContent = "Back to menu";
         gameField.style.display = "flex";
 
     }, 500);
@@ -105,7 +105,7 @@ const clickCard = function() {
                 gameResult = 0;
                 gameSection.style.display = "none";
                 gameField.appendChild(finalResult);
-                finalResult.textContent = "Wygrana!";
+                finalResult.textContent = "You won!";
                 finalResult.classList.add('finalResult');
             }
         } else {
@@ -181,7 +181,7 @@ const levelStart = document.querySelectorAll('.level section').forEach((e) => {
                 card.classList.add('hardCard');
                 gameSection.appendChild(card);
             }
-            
+
             squares.forEach((square) => {
                 const position = Math.floor(Math.random()*cardsColor.length);
                 square.style.backgroundColor = (cardsColor[position]);
