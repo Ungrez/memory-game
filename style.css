@@ -232,6 +232,7 @@ aside div {
         flex-direction: column;
         height: 90vh;
         width: 100vw;
+        margin: 0;
     }
     .level {
         flex-direction: column;
@@ -274,11 +275,13 @@ aside div {
 @media (min-width: 481px) and (max-width: 768px) {
     .game h1 {
         font-size: 4em;
+        line-height: 3;
     }
     .game {
         flex-direction: column;
         height: 90vh;
         width: 100vw;
+        margin: 0;
     }
     .level {
         flex-direction: column;
@@ -328,6 +331,7 @@ aside div {
         flex-direction: column;
         height: 90vh;
         width: 100vw;
+        margin: 0;
     }
     .level {
         flex-direction: column;
