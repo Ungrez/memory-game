@@ -1,0 +1,19 @@
+@import url("menu.css");
+@import url("game.css");
+@import url("media.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+body {
+    position: relative;
+    background: rgb(198,134,190);
+    background: linear-gradient(90deg, rgba(198,134,190,1) 0%, rgba(70,17,71,1) 100%);
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}

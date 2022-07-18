@@ -1,0 +1,71 @@
+.game {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 80vh;
+    width: 60vw;
+    margin: 10vh auto;
+    padding-top: 40px;
+    overflow: hidden;
+}
+.newGame {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    height: 90vh;
+    width: 90vw;
+    background: rgb(233,194,228);
+    background: linear-gradient(90deg, rgba(233,194,228,1) 0%, rgba(161,39,163,1) 100%);
+    border-radius: 20px;
+    box-shadow: 0 0 2em black;
+    margin: 5vh auto;
+}
+.finalResult {
+    order: -1;
+    align-self: center;
+    text-align: center;
+    padding-top: 30px;
+    font-size: 12em;
+    flex-grow: 1;
+    letter-spacing: 2px;
+    color: white;
+    text-shadow: 4px 2px hotpink;
+    animation: grow 1s linear;
+}
+@keyframes grow {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+.squaresSection {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    width: 50%;
+    margin: 2% 2%;
+}
+.easyCard {
+    width: 25%;
+    height: 25%;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.mediumCard {
+    width: 16.6%;
+    height: 16.7%;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.hardCard {
+    width: 12.5%;
+    height: 12.5%;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.hidden {
+    background-color: gray!important;
+}
+.off {
+    cursor: default;
+    pointer-events: none;
+    background-color: transparent!important;
+}

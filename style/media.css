@@ -1,0 +1,158 @@
+@media (max-width: 480px) {
+    .game h1 {
+        font-size: 4em;
+    }
+    .game {
+        flex-direction: column;
+        height: 90vh;
+        width: 100vw;
+        margin: 0;
+    }
+    .level {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+    .level section.easy, .medium, .hard {
+        flex-basis: 30%;
+        width: 80%;
+    }
+    .level aside {
+        display: none;
+    }
+    .newGame {
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        background: rgb(233,194,228);
+        background: linear-gradient(90deg, rgba(233,194,228,1) 0%, rgba(161,39,163,1) 100%);
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0;
+        overflow: hidden;
+    }
+    .squaresSection {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+    }
+    .btn {
+        font-size: 1.6em;
+        height: 20%;
+    }
+    .finalResult {
+        font-size: 8em;
+        padding-top: 100px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .game h1 {
+        font-size: 4em;
+        line-height: 3;
+    }
+    .game {
+        flex-direction: column;
+        height: 90vh;
+        width: 100vw;
+        margin: 0;
+    }
+    .level {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+    .level section.easy, .medium, .hard {
+        flex-basis: 30%;
+        width: 80%;
+    }
+    .level aside {
+        display: none;
+    }
+    .newGame {
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        border-radius: 0;
+        overflow: hidden;
+    }
+    .squaresSection {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+    }
+    .btn {
+        margin: 2%;
+        line-height: 0px;
+        padding: 20px;
+    }
+    .finalResult {
+        font-size: 8em;
+        padding-top: 100px;
+    }
+    .game p {
+        margin-top:0;
+    }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .game h1 {
+        font-size: 6em;
+    }
+    .game {
+        flex-direction: column;
+        height: 90vh;
+        width: 100vw;
+        margin: 0;
+    }
+    .level {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+    .level section.easy, .medium, .hard {
+        flex-basis: 30%;
+        width: 80%;
+    }
+    .level aside {
+        display: none;
+    }
+    .newGame {
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        border-radius: 0;
+        overflow: hidden;
+    }
+    .squaresSection {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+    }
+    .btn {
+        margin: 2%;
+        line-height: 0px;
+        padding: 25px;
+    }
+    .finalResult {
+        font-size: 8em;
+        padding-top: 100px;
+    }
+    .game p {
+        margin-top:0;
+    }
+}
+@media (min-width: 1025px) and (max-width: 1200px) {
+    .game h1 {
+        font-size: 5em;
+    }
+    .game {
+        width: 80vw;
+    }
+}
