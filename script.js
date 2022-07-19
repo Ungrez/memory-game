@@ -1,9 +1,5 @@
 const gameSection = document.createElement('div');
 gameSection.classList.add('squaresSection');
-
-const menuReturn = document.createElement('button');
-menuReturn.classList.add('btn');
-
 const hint = document.createElement('button');
 hint.classList.add('btn');
 
@@ -13,10 +9,10 @@ const btnsField = document.createElement('div');
 const finalResult = document.createElement('h2');
 
 let squares = [];
-let activeCard = "";
 const activeCards= [];
 let gameResult = 0;
 const cardsColor = [];
+let leftHint = 3;
 
 // Hide menu
 const hiddenMenu = () => {
@@ -37,6 +33,8 @@ const hiddenMenu = () => {
 
 const startGame = () => {
     gameSection.style.display = 'flex';
+    const menuReturn = document.createElement('button');
+    menuReturn.classList.add('btn');
     document.body.appendChild(gameField);
     gameField.appendChild(gameSection);
     gameField.classList.add("newGame");
@@ -49,36 +47,24 @@ const startGame = () => {
     )
     setTimeout(() => {
         gameField.appendChild(btnsField);
-        btnsField.appendChild(hint);
-        btnsField.appendChild(menuReturn);
-        hint.textContent = "Hint"
+        btnsField.appendChild(hint).addEventListener('click', showPrompt);
+        btnsField.appendChild(menuReturn).addEventListener('click', menuBack);
+        hint.textContent = `Hint left ${leftHint}`;
         menuReturn.textContent = "Back to menu";
         gameField.style.display = "flex";
 
     }, 500);
 }
-const showHint = setTimeout(showCards, 2500);
-        function showCards() {
-
-            squares.forEach((square) => {
-            square.classList.remove("hidden");
-        })
-    }
-
-hint.addEventListener('click', () => {
+const showCards = () => {
     squares.forEach((square) => {
-        square.classList.remove("hidden");
-    })
-    setTimeout(() => {
-        squares.forEach((square) => {
-            square.classList.add("hidden");
-        })
-    }, 1500);
+    square.classList.remove("hidden");
 });
+}
+const showHint = setTimeout(showCards, 2500);
 
 // Color draw
 
-function drawCard() {
+const drawCard = () => {
     const minValue = 1118481;
     const maxValue = 16777215;
     const randomColor = Math.floor(Math.random()*(maxValue - minValue) + minValue).toString(16);
@@ -86,8 +72,9 @@ function drawCard() {
 };
 
 // Card Check
-const clickCard = function() {
-    activeCard = this;
+const clickCard = (e) => {
+    let activeCard = "";
+    activeCard = e.target;
     activeCard.classList.remove("hidden");
     activeCard.style.pointerEvents = "none";
     if (activeCards.length === 0) {
@@ -96,13 +83,14 @@ const clickCard = function() {
     } else {
         squares.forEach(square => square.removeEventListener('click', clickCard));
         activeCards[1] = activeCard.dataset.id;
-        setTimeout(function(){
+        setTimeout(() => {
         if (activeCards[0] === activeCards[1]) {
             let removeCards = document.querySelectorAll(`div[data-id='${activeCards[1]}']`);
             removeCards.forEach(card => card.classList.add("off"));
             gameResult++;
             if(gameResult == squares.length/2) {
                 gameResult = 0;
+                leftHint = 0;
                 gameSection.style.display = "none";
                 gameField.appendChild(finalResult);
                 finalResult.textContent = "You won!";
@@ -123,79 +111,76 @@ const clickCard = function() {
 
 const levelStart = document.querySelectorAll('.level section').forEach((e) => {
     e.addEventListener('click', () => {
-        const hiddenCards = setTimeout(hideCards, 2500);
-        function hideCards() {
+        const hideCards = () => {
             squares.forEach((square) => {
             square.classList.add("hidden");
         })
     }
+        const hiddenCards = setTimeout(hideCards, 2500);
         let name = e.getAttribute('class');
         hiddenMenu();
         startGame();
 
-        if(name == 'easy') {
+        if(name === 'easy') {
             for (let i = 0; i < 16; i++) {
                 const card = document.createElement('div');
                 card.classList.add('easyCard')
                 gameSection.appendChild(card);
                 squares.push(card);
-            }
-            for (let i = 0; i < 8; i++) {
-                drawCard();
+                if(cardsColor.length < 16) {
+                    drawCard();
+                }
             }
 
-            squares.forEach((square) => {
-                const position = Math.floor(Math.random()*cardsColor.length);
-                square.style.background = (cardsColor[position]);
-                square.dataset.id = (cardsColor[position]);
-                cardsColor.splice(position, 1);
-                square.addEventListener('click', clickCard);
-                });
-
-        } else if(name == 'medium') {
-            for (let i = 0; i < 18; i++) {
-                drawCard();
-            }
+        } else if(name === 'medium') {
             for (let i = 0; i < 36; i++) {
                 const card = document.createElement('div');
                 card.classList.add('mediumCard')
                 gameSection.appendChild(card);
                 squares.push(card);
+                if(cardsColor.length < 36) {
+                    drawCard();
+                }
             }
-
-            squares.forEach((square) => {
-                const position = Math.floor(Math.random()*cardsColor.length);
-                square.style.backgroundColor = (cardsColor[position]);
-                square.dataset.id = (cardsColor[position]);
-                cardsColor.splice(position, 1);
-                square.addEventListener('click', clickCard);
-            });
             
         } else {
-            for (let i = 0; i < 32; i++) {
-                drawCard();
-            }
             for (let i = 0; i < 64; i++) {
                 const card = document.createElement('div');
                 squares.push(card);
                 card.classList.add('hardCard');
                 gameSection.appendChild(card);
+                if(cardsColor.length < 64) {
+                    drawCard();
+                }
             }
-
-            squares.forEach((square) => {
-                const position = Math.floor(Math.random()*cardsColor.length);
-                square.style.backgroundColor = (cardsColor[position]);
-                square.dataset.id = (cardsColor[position]);
-                cardsColor.splice(position, 1);
-                square.addEventListener('click', clickCard);
-            });
         };
+        
+        squares.forEach((square) => {
+            const position = Math.floor(Math.random()*cardsColor.length);
+            square.style.backgroundColor = (cardsColor[position]);
+            square.dataset.id = (cardsColor[position]);
+            cardsColor.splice(position, 1);
+            square.addEventListener('click', clickCard);
+        });
     });
 });
 
-//Back to menu
+const showPrompt = () => {
+    --leftHint;
+    if(leftHint >= 0) {
+    squares.forEach((square) => {
+        square.classList.remove("hidden");
+    })
+    setTimeout(() => {
+        squares.forEach((square) => {
+            square.classList.add("hidden");
+            hint.textContent = `Hint left ${leftHint}`;
+        })
+    }, 1500);
+};
+};
 
-menuReturn.addEventListener('click', () => {
+const menuBack = () => {
     gameField.animate(
         [
             {transform: 'translateY(0)'},
@@ -216,6 +201,7 @@ menuReturn.addEventListener('click', () => {
             gameField.removeChild(finalResult);
         }
         gameField.style.display = "none";
+        btnsField.innerHTML = '';
         gameMenu.style.display = "flex";
         while (gameSection.firstChild) {
             gameSection.removeChild(gameSection.firstChild);
@@ -223,5 +209,5 @@ menuReturn.addEventListener('click', () => {
     }, 500)
     cardsColor.length = 0;
     squares = [];
-})
-
+    leftHint = 3;
+}
